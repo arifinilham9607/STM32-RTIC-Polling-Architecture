@@ -10,7 +10,7 @@ This project proposes a radical paradigm shift in sensor acquisition and actuato
 ## 2. System Block Diagram & Flowchart
 *The architecture isolates the DSP execution within the main loop, guaranteeing constant execution time without interrupt preemption.*
 
-![Block Diagram](./Diagram_Blok.png)
+![Block Diagram](./Diagram_Block.png)
 
 *(Note: Diagram maps the isolated flow from Dual Analog Sensors -> ADC1 Manual Trigger -> Cortex-M3 DSP Core -> Event-Triggered Evaluator -> GPIO/UART Output).*
 
