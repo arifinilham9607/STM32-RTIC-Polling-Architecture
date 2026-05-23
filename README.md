@@ -10,15 +10,20 @@ This project proposes a radical paradigm shift in sensor acquisition and actuato
 ## 2. System Block Diagram & Flowchart
 *The architecture isolates the DSP execution within the main loop, guaranteeing constant execution time without interrupt preemption.*
 
-![Block Diagram](./Diagram_Block.png)
+![Block Diagram](./Block_Diagram.jpeg)
 
 *(Note: Diagram maps the isolated flow from Dual Analog Sensors -> ADC1 Manual Trigger -> Cortex-M3 DSP Core -> Event-Triggered Evaluator -> GPIO/UART Output).*
 
-![Flowchart](./Flowchart.png)
+![Flowchart](./Flowchart.jpeg)
 
 *(Note: The flowchart illustrates the strict sequential polling loop, eliminating the conventional preemptive scheduling tree).*
 
 ## 3. Simulation Execution Steps (Keil C/C++ & Proteus)
+
+![Flowchart](./Proteus.jpeg)
+
+*(Note: The Simulation with STM32F103C8 with Proteus).*
+
 This architecture is validated strictly bypassing Rust/hardware-level schedulers, focusing on a robust C-based toolchain:
 1. **STM32 Configuration (Keil uVision):** Configure the STM32F103 peripheral registers. ADC1 is locked to Software Trigger (Polling mode). USART1 is configured at 115200 Baud for telemetry.
 2. **Circuit Simulation (Proteus 8):** Load the compiled `.hex` binary. To simulate harsh industrial environments (as discussed in multi-sensor integration literature), AC SINE wave generators are injected over DC potentiometers (PA1 & PA2) to create dynamic noise floors.
