@@ -10,17 +10,17 @@ This project proposes a radical paradigm shift in sensor acquisition and actuato
 ## 2. System Block Diagram & Flowchart
 *The architecture isolates the DSP execution within the main loop, guaranteeing constant execution time without interrupt preemption.*
 
-![Block Diagram](./Block_Diagram.jpeg)
+![Block Diagram](./Image/Block_Diagram.jpeg)
 
 *(Note: Diagram maps the isolated flow from Dual Analog Sensors -> ADC1 Manual Trigger -> Cortex-M3 DSP Core -> Event-Triggered Evaluator -> GPIO/UART Output).*
 
-![Flowchart](./Flowchart.jpeg)
+![Flowchart](./Image/Flowchart.jpeg)
 
 *(Note: The flowchart illustrates the strict sequential polling loop, eliminating the conventional preemptive scheduling tree).*
 
 ## 3. Simulation Execution Steps (Keil C/C++ & Proteus)
 
-![Flowchart](./Proteus.jpeg)
+![Flowchart](./Image/Proteus.jpeg)
 
 *(Note: The Simulation with STM32F103C8 with Proteus).*
 
@@ -31,7 +31,7 @@ This architecture is validated strictly bypassing Rust/hardware-level schedulers
 4. **Data Visualization:** The multi-variable dynamics are plotted using a custom GNUPlot script (`.gp`) to analyze real-time system responses.
 
 ## 4. Simulation Results and Analytical Insights
-![GNUPlot Visualization](./Hasil_Visualisasi_Sistem.png)
+![GNUPlot Visualization](./Image/Hasil_Visualisasi_Sistem.png)
 
 The empirical data yielded four critical insights regarding system stability:
 * **A. Algorithmic Noise Reduction:** The fixed-point Biquad filter successfully attenuated high-frequency injected noise without FPU hardware acceleration. Note: An inherent DC Gain attenuation (0.25) dictates the need for software-level scaling compensation.
